@@ -1,22 +1,205 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <title>love you</title>
-  <link rel="stylesheet" href="style.css">
-<script defer src="script.js" ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Love Message ❤️</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html,body{
+            width:100%;
+            height:100%;
+            overflow:hidden;
+            font-family:cursive;
+        }
+
+        body{
+            background:url("https://i.pinimg.com/originals/51/d8/37/51d8374126446d495348b6032202126f.jpg");
+            background-size:cover;
+            background-position:center;
+        }
+
+        .bg_heart{
+            position:fixed;
+            width:100%;
+            height:100%;
+            overflow:hidden;
+        }
+
+        .container{
+            position:absolute;
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
+            text-align:center;
+            z-index:2;
+        }
+
+        #text1{
+            color:white;
+            text-shadow:2px 2px 10px black;
+            line-height:1.8;
+            max-width:900px;
+            animation:fadeIn 2s ease;
+        }
+
+        @media(max-width:768px){
+
+            #text1{
+                font-size:20px;
+            }
+
+        }
+
+        @media(min-width:769px){
+
+            #text1{
+                font-size:32px;
+            }
+
+        }
+
+        .heart{
+            position:absolute;
+            top:-10%;
+            transform:rotate(-45deg);
+            animation:love 6s linear;
+        }
+
+        .heart:before,
+        .heart:after{
+            content:"";
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:inherit;
+            border-radius:50%;
+        }
+
+        .heart:before{
+            top:-50%;
+            left:0;
+        }
+
+        .heart:after{
+            top:0;
+            right:-50%;
+        }
+
+        @keyframes love{
+            0%{
+                top:110%;
+                opacity:1;
+            }
+
+            100%{
+                top:-10%;
+                opacity:0;
+            }
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+        audio{
+            position:fixed;
+            bottom:15px;
+            left:15px;
+            width:250px;
+            z-index:10;
+        }
+
+    </style>
 </head>
+
 <body>
-  
 
-<div class="bg_heart">
-</div>
+    <div class="bg_heart"></div>
 
-<div class="container">
- 
+    <div class="container">
+        <div id="text1"></div>
+    </div>
 
-<h2 id="text1"></h2>
+    <!-- song4.mp3 ko isi file ke saath same folder me rakho -->
+    <audio controls autoplay loop>
+        <source src="song4.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+
+        var love = setInterval(function () {
+
+            var r_size = Math.floor(Math.random() * 60) + 10;
+            var r_left = Math.floor(Math.random() * 100) + 1;
+            var r_bg = Math.floor(Math.random() * 25) + 100;
+            var r_time = Math.floor(Math.random() * 5) + 5;
+
+            $('.bg_heart').append(
+                "<div class='heart' style='width:" + r_size + "px;height:" + r_size +
+                "px;left:" + r_left + "%;background:rgba(255," + (r_bg - 25) + "," + r_bg +
+                ",1);animation:love " + r_time + "s linear'></div>"
+            );
+
+            $('.heart').each(function () {
+                var top = $(this).css("top").replace(/[^-\d\.]/g, '');
+                if (top <= -100) {
+                    $(this).remove();
+                }
+            });
+
+        }, 500);
 
 
-  </div>
-  <audio  controls autoplay  src="love1.mpeg"></audio>
+        var i = 0;
+
+        var txt1 = "Hi Beautiful...! ❤️ << Aaj mujhe tumse kuch special kehna hai, isliye please is message ko poora padhna... << Jab maine tumse pehli baar baat ki thi, tabhi tum mujhe sabse alag lagi thi. Dheere dheere pata hi nahi chala kab tum meri soch ka important part ban gayi. Tumhari har baat, tumhari smile, tumhara nature... sab kuch mujhe bahut achha lagta hai. << Aur sach kahu, tum traditional dress me bahut zyada beautiful lagti ho... 🥰 << Tumhe us look me dekhkar bas nazar hi nahi hatti. << Main usually apni feelings kisi se share nahi karta, but tumhare liye jo feel karta hu wo genuinely special hai. Jab bhi tumse baat hoti hai na, pura din achha lagne lagta hai. << I don’t know future me kya hoga, but itna zaroor pata hai ki tum mere liye bahut important ho. ❤️ << I really like you... and maybe a little more than that. << Bas abhi tumhare saath zyada se zyada time spend karne chahta hu, taaki tumhe bata saku ki tum mere liye kitni special ho... 💖";
+
+        var speed = 60;
+
+        typeWriter();
+
+        function typeWriter() {
+
+            if (i < txt1.length) {
+
+                if (txt1.charAt(i) == "<") {
+
+                    document.getElementById("text1").innerHTML += "<br><br>";
+
+                } else {
+
+                    document.getElementById("text1").innerHTML += txt1.charAt(i);
+
+                }
+
+                i++;
+
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+    </script>
+
 </body>
 </html>
