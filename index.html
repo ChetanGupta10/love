@@ -1,293 +1,966 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Komal ❤️</title>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<title>A Special Surprise for You ✨❤️</title>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+>
 
 <style>
+
+/* ================================================= */
+/* RESET */
+/* ================================================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    font-family:cursive;
-}
-
+html,
 body{
-    background:url("https://i.pinimg.com/originals/51/d8/37/51d8374126446d495348b6032202126f.jpg");
-    background-size:cover;
-    background-position:center;
-}
-
-.bg_heart{
-    position:fixed;
     width:100%;
     height:100%;
     overflow:hidden;
+    background:#000;
+    -webkit-user-select:none;
+    user-select:none;
 }
+
+/* ================================================= */
+/* MAIN CONTAINER */
+/* ================================================= */
 
 .container{
-    position:absolute;
-    width:100%;
-    height:100%;
+    display:flex;
+    width:500vw;
+    height:100dvh;
+    transition:
+        transform 0.75s
+        cubic-bezier(0.77,0,0.175,1);
+    will-change:transform;
+}
+
+/* ================================================= */
+/* ALL SLIDES */
+/* ================================================= */
+
+.slide{
+    flex:0 0 100vw;
+    width:100vw;
+    height:100dvh;
+    min-height:100svh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:20px;
     text-align:center;
-    z-index:2;
-}
-
-.photo-frame{
-    width:260px;
-    height:260px;
-    border-radius:20px;
+    position:relative;
     overflow:hidden;
-    border:4px solid white;
-    box-shadow:0 0 30px rgba(255,255,255,0.8);
-    margin-bottom:25px;
+    color:white;
+    padding:
+        max(25px, env(safe-area-inset-top))
+        max(20px, env(safe-area-inset-right))
+        max(25px, env(safe-area-inset-bottom))
+        max(20px, env(safe-area-inset-left));
 }
 
-.photo-frame img{
+/* ================================================= */
+/* SLIDE BACKGROUNDS */
+/* ================================================= */
+
+.slide:nth-child(1){
+    background:
+        linear-gradient(
+            135deg,
+            #ff758c,
+            #ff7eb3
+        );
+}
+
+.slide:nth-child(2){
+    background:
+        linear-gradient(
+            135deg,
+            #ff512f,
+            #dd2476
+        );
+}
+
+.slide:nth-child(3){
+    background:
+        linear-gradient(
+            135deg,
+            #8e2de2,
+            #4a00e0
+        );
+}
+
+.photo-carousel-slide{
+    background:
+        radial-gradient(
+            circle at center,
+            #42115e 0%,
+            #1b0629 45%,
+            #030303 100%
+        );
+}
+
+.slide:nth-child(5){
+    background:
+        linear-gradient(
+            135deg,
+            #141e30,
+            #243b55
+        );
+}
+
+/* ================================================= */
+/* HEADINGS */
+/* ================================================= */
+
+h1{
+    margin-bottom:20px;
+    font-size:30px;
+    line-height:1.35;
+    font-weight:600;
+}
+
+p{
+    line-height:1.7;
+}
+
+/* ================================================= */
+/* FLOATING ICON */
+/* ================================================= */
+
+.heart-icon{
+    font-size:65px;
+    margin-bottom:15px;
+    animation:
+        floatingIcon
+        2s
+        ease-in-out
+        infinite;
+}
+
+.final-slide{
+    overflow-y:auto;
+    justify-content:flex-start;
+    padding-top:50px;
+}
+
+@keyframes floatingIcon{
+    0%,
+    100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* ================================================= */
+/* INPUT */
+/* ================================================= */
+
+input{
+    padding:13px 20px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    text-align:center;
+    margin-bottom:20px;
+    width:75%;
+    max-width:300px;
+    outline:none;
+    background:white;
+    color:#333;
+    -webkit-appearance:none;
+}
+
+input::placeholder{
+    color:#999;
+}
+
+input:focus{
+    box-shadow:
+        0 0 0 3px
+        rgba(255,255,255,0.3);
+}
+
+/* ================================================= */
+/* BUTTON */
+/* ================================================= */
+
+button{
+    margin-top:20px;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#e91e63;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    z-index:30;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    box-shadow:
+        0 6px 20px
+        rgba(0,0,0,0.25);
+    -webkit-tap-highlight-color:transparent;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+button:active{
+    transform:scale(0.96);
+}
+
+/* ================================================= */
+/* MESSAGE SLIDE */
+/* ================================================= */
+
+.message-slide{
+    justify-content:flex-start;
+    padding-top:
+        max(
+            40px,
+            env(safe-area-inset-top)
+        );
+}
+
+/* ================================================= */
+/* MESSAGE */
+/* ================================================= */
+
+.message{
+    width:100%;
+    max-width:650px;
+    font-size:15px;
+    line-height:1.85;
+    max-height:63dvh;
+    overflow-y:auto;
+    padding:
+        5px
+        12px
+        10px;
+    -webkit-overflow-scrolling:touch;
+}
+
+.message::-webkit-scrollbar{
+    width:4px;
+}
+
+.message::-webkit-scrollbar-thumb{
+    background:
+        rgba(255,255,255,0.5);
+    border-radius:10px;
+}
+
+/* ================================================= */
+/* PHOTO CAROUSEL SLIDE */
+/* ================================================= */
+
+.photo-carousel-slide{
+    position:relative;
+    padding:0;
+    justify-content:center;
+    align-items:center;
+    touch-action:pan-y;
+}
+
+.photo-carousel-slide::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:
+        rgba(255,80,170,0.16);
+    filter:blur(90px);
+    top:50%;
+    left:50%;
+    transform:
+        translate(-50%,-50%);
+    pointer-events:none;
+}
+
+/* ================================================= */
+/* CAROUSEL TITLE */
+/* ================================================= */
+
+.carousel-title{
+    position:absolute;
+    top:
+        max(
+            25px,
+            env(safe-area-inset-top)
+        );
+    left:50%;
+    transform:translateX(-50%);
+    z-index:25;
+    font-size:21px;
+    font-weight:600;
+    white-space:nowrap;
+    text-shadow:
+        0 3px 15px
+        rgba(0,0,0,0.5);
+}
+
+/* ================================================= */
+/* CAROUSEL */
+/* ================================================= */
+
+.carousel{
+    width:100%;
+    height:68dvh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    perspective:1200px;
+    position:relative;
+    z-index:5;
+    touch-action:pan-y;
+}
+
+/* ================================================= */
+/* CAROUSEL TRACK */
+/* ================================================= */
+
+.carousel-track{
+    width:300px;
+    height:400px;
+    position:relative;
+    transform-style:preserve-3d;
+}
+
+/* ================================================= */
+/* PHOTO CARDS */
+/* ================================================= */
+
+.carousel-card{
+    position:absolute;
+    width:300px;
+    height:400px;
+    left:0;
+    top:0;
+    padding:9px;
+    border-radius:22px;
+    background:
+        rgba(255,255,255,0.10);
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.55);
+    transition:
+        transform 0.9s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        opacity 0.9s ease,
+        filter 0.9s ease;
+    overflow:hidden;
+}
+
+/* ================================================= */
+/* PHOTO */
+/* ================================================= */
+
+.carousel-card img{
     width:100%;
     height:100%;
-    object-fit:cover;
-    transition:opacity 1s ease;
+    display:block;
+    object-fit:contain;
+    object-position:center;
+    border-radius:15px;
+    background:#050505;
 }
 
-#text1{
-    color:white;
-    text-shadow:2px 2px 10px black;
-    line-height:1.8;
-    max-width:900px;
-    font-weight:bold;
+/* ================================================= */
+/* DOTS */
+/* ================================================= */
+
+.photo-dots{
+    position:absolute;
+    bottom:
+        calc(
+            max(80px, env(safe-area-inset-bottom))
+        );
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:25;
 }
 
-@media(max-width:768px){
-    #text1{
+.photo-dots span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:
+        rgba(255,255,255,0.4);
+    transition:
+        all 0.3s ease;
+}
+
+.photo-dots span.active{
+    width:25px;
+    border-radius:10px;
+    background:white;
+}
+
+/* ================================================= */
+/* CAROUSEL BUTTON */
+/* ================================================= */
+
+.photo-carousel-slide button{
+    position:absolute;
+    bottom:
+        max(
+            25px,
+            env(safe-area-inset-bottom)
+        );
+    left:50%;
+    transform:translateX(-50%);
+    margin:0;
+    z-index:30;
+}
+
+.photo-carousel-slide button:hover{
+    transform:
+        translateX(-50%)
+        scale(1.05);
+}
+
+.photo-carousel-slide button:active{
+    transform:
+        translateX(-50%)
+        scale(0.96);
+}
+
+/* ================================================= */
+/* FINAL SLIDE */
+/* ================================================= */
+
+.final-text{
+    width:90%;
+    max-width:600px;
+    font-size:17px;
+    line-height:1.9;
+}
+
+/* ================================================= */
+/* MOBILE */
+/* ================================================= */
+
+@media(max-width:600px){
+    h1{
+        font-size:24px;
+        line-height:1.35;
+    }
+
+    .heart-icon{
+        font-size:55px;
+    }
+
+    input{
+        width:85%;
+        font-size:16px;
+    }
+
+    button{
+        padding:11px 24px;
+        font-size:15px;
+    }
+
+    .message-slide{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .final-slide{
+        padding-top:25px;
+    }
+
+    .final-slide h1{
+        font-size:24px;
+        margin-bottom:15px;
+    }
+
+    .final-slide .final-text{
+        font-size:14px;
+        line-height:1.8;
+    }
+
+    .message{
+        font-size:13.5px;
+        line-height:1.78;
+        max-height:65dvh;
+    }
+
+    .carousel{
+        height:68dvh;
+        perspective:900px;
+    }
+
+    .carousel-track{
+        width:230px;
+        height:320px;
+    }
+
+    .carousel-card{
+        width:230px;
+        height:320px;
+        border-radius:19px;
+    }
+
+    .carousel-title{
         font-size:18px;
     }
 
-    .photo-frame{
-        width:220px;
-        height:220px;
+    .final-text{
+        font-size:15px;
+        line-height:1.8;
     }
 }
 
-@media(min-width:769px){
-    #text1{
-        font-size:28px;
+/* ================================================= */
+/* SMALL MOBILE */
+/* ================================================= */
+
+@media(max-width:380px){
+    h1{
+        font-size:21px;
+    }
+
+    .heart-icon{
+        font-size:48px;
+    }
+
+    .message{
+        font-size:13px;
+        line-height:1.7;
+        max-height:65dvh;
+    }
+
+    .carousel-track{
+        width:205px;
+        height:285px;
+    }
+
+    .carousel-card{
+        width:205px;
+        height:285px;
     }
 }
 
-.heart{
-    position:absolute;
-    top:-10%;
-    transform:rotate(-45deg);
-    animation:love 6s linear;
-}
+/* ================================================= */
+/* LANDSCAPE MOBILE */
+/* ================================================= */
 
-.heart:before,
-.heart:after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:inherit;
-    border-radius:50%;
-}
-
-.heart:before{
-    top:-50%;
-    left:0;
-}
-
-.heart:after{
-    top:0;
-    right:-50%;
-}
-
-@keyframes love{
-    0%{
-        top:110%;
-        opacity:1;
+@media(max-height:500px) and (orientation:landscape){
+    h1{
+        font-size:20px;
+        margin-bottom:10px;
     }
 
-    100%{
-        top:-10%;
-        opacity:0;
+    .heart-icon{
+        font-size:40px;
+        margin-bottom:5px;
+    }
+
+    .message{
+        max-height:55dvh;
+        font-size:12px;
+    }
+
+    button{
+        margin-top:10px;
+        padding:8px 20px;
+        font-size:13px;
+    }
+
+    .carousel{
+        height:75dvh;
+    }
+
+    .carousel-track{
+        width:190px;
+        height:250px;
+    }
+
+    .carousel-card{
+        width:190px;
+        height:250px;
     }
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="bg_heart"></div>
+<!-- ================================================= -->
+<!-- MAIN CONTAINER -->
+<!-- ================================================= -->
 
-<div class="container">
+<div class="container" id="container">
 
-    <div class="photo-frame">
-        <img id="komalPhoto" src="komal1.jpg" alt="Komal">
+<!-- ================================================= -->
+<!-- SLIDE 1 : NAME -->
+<!-- ================================================= -->
+
+<div class="slide">
+    <div class="heart-icon">✨</div>
+    <h1>A Special Surprise For Someone Special ❤️</h1>
+    <p style="margin-bottom:20px;">Enter your name to unlock this secret ✨</p>
+    <input type="text" id="username" placeholder="Enter your name" autocomplete="off">
+    <button onclick="checkName()">Unlock Surprise 💖</button>
+</div>
+
+<!-- ================================================= -->
+<!-- SLIDE 2 : GREETING -->
+<!-- ================================================= -->
+
+<div class="slide">
+    <div class="heart-icon">💫</div>
+    <h1 id="greeting"></h1>
+    <button onclick="nextSlide()">See What's Inside ✨</button>
+</div>
+
+<!-- ================================================= -->
+<!-- SLIDE 3 : MESSAGE -->
+<!-- ================================================= -->
+
+<div class="slide message-slide">
+    <h1>Hey Komal ✨❤️</h1>
+    <div class="message" id="message"></div>
+    <button onclick="nextSlide()">Glimpse of Perfection ❤️</button>
+</div>
+
+<!-- ================================================= -->
+<!-- SLIDE 4 : PHOTO CAROUSEL (5 PHOTOS) -->
+<!-- ================================================= -->
+
+<div class="slide photo-carousel-slide" id="photoCarouselSlide">
+
+    <div class="carousel-title" id="memoryName"></div>
+
+    <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-card">
+                <img id="carouselPhoto1" src="" alt="Photo 1">
+            </div>
+            <div class="carousel-card">
+                <img id="carouselPhoto2" src="" alt="Photo 2">
+            </div>
+            <div class="carousel-card">
+                <img id="carouselPhoto3" src="" alt="Photo 3">
+            </div>
+            <div class="carousel-card">
+                <img id="carouselPhoto4" src="" alt="Photo 4">
+            </div>
+            <div class="carousel-card">
+                <img id="carouselPhoto5" src="" alt="Photo 5">
+            </div>
+        </div>
     </div>
 
-    <div id="text1"></div>
+    <!-- 5 DOTS -->
+    <div class="photo-dots" id="photoDots">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <button onclick="nextSlide()">One Last Thing ❤️</button>
 
 </div>
 
-<!-- Put your song in same folder and rename it to komal-song.mp3 -->
+<!-- ================================================= -->
+<!-- SLIDE 5 : FINAL -->
+<!-- ================================================= -->
 
-<audio id="bgmusic" autoplay loop>
-    <source src="song6.mp3" type="audio/mp3">
+<div class="slide final-slide">
+    <div class="heart-icon">🌹</div>
+    <h1 id="finalMessage"></h1>
+    <div class="final-text">
+        School ke din chale gaye,<br>
+        aur shayad wo introverted ladka bhi thoda sa badal gaya hai... 😉✨<br><br>
+
+        Lekin ek cheez jo bilkul nahi badli,<br>
+        wo hai tumhari wo mesmerizing smile aur mera tumpe stop ho jana. ❤️<br><br>
+
+        Itne saal baat na karke bohot time waste kar diya maine,<br>
+        ab socho to lagta hai thoda sa daring pehle hi ho jana chahiye tha! 🙈<br><br>
+
+        Isliye ab aur intezar nahi...<br>
+        Kya hum apni 11th-12th ki adhoori baatein<br>
+        ek coffee ke saath poori kar sakte hain? ☕✨<br><br>
+
+        Promise, is baar main chup chap sirf dekhta nahi rahunga...<br>
+        (par guarantee nahi de sakta agar tum itni khoobsurat ban ke aaogi toh) 😉❤️<br><br>
+
+        Always keep glowing & slaying,<br>
+        <b>Komal</b> ✨❤️
+    </div>
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- MUSIC -->
+<!-- ================================================= -->
+
+<audio id="song" loop preload="auto">
+    <source src="song6.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-// Music Play
+/* ================================================= */
+/* GLOBAL VARIABLES */
+/* ================================================= */
 
-window.addEventListener("load", function(){
+let current = 0;
+let carouselIndex = 0;
+let carouselTimer = null;
+let touchStartX = 0;
+let touchEndX = 0;
 
-    let music = document.getElementById("bgmusic");
+const container = document.getElementById("container");
+const music = document.getElementById("song");
+const totalSlides = document.querySelectorAll(".slide").length;
+const cards = document.querySelectorAll(".carousel-card");
+const dots = document.querySelectorAll("#photoDots span");
+const TOTAL_PHOTOS = 5;
 
-    music.play().catch(() => {
+/* ================================================= */
+/* FLIRTY DATA FOR KOMAL */
+/* ================================================= */
 
-        document.body.addEventListener("click", function(){
-            music.play();
-        }, {once:true});
+const komalData = {
+    name: "Komal",
+    message: `
+        Hey Komal... ✨❤️<br><br>
 
-        document.body.addEventListener("touchstart", function(){
-            music.play();
-        }, {once:true});
+        Ek confession hai jo bohot pehle ho jana chahiye tha. 😉<br><br>
 
-    });
+        Yaad hai 11th aur 12th ke wo din? Hum dono ek hi class mein the... Lekin main shuru se hi thoda shant aur extreme introvert type tha, toh chahte hue bhi kabhi aage aake tumse baat karne ki himmat hi nahi hui. 🙈<br><br>
 
-});
+        Sach bolu toh tab bhi tum classroom mein sabse zyada pretty aur alag lagti thi. Tumhare paas aane ki koshish to dil ne bohot ki, par wo awkward silence beech mein aa jaati thi! 😂<br><br>
 
+        School khatam hone ke baad itne saal nikal gaye, na mulaqat hui aur na hi koi contact... Lekin kal jab achanak maine Instagram scroll karte hue tumhari post dekhi na... <br><br>
 
-// Photo Rotation
+        <b>I swear, mera screen scroll karna wahi ruk gaya!</b> 😍✨<br><br>
 
-const photos = [
-    "komal1.jpeg",
-    "komal2.jpeg",
-    "komal3.jpeg",
-    "komal4.jpeg",
-    "komal5.jpeg"
-];
+        Itne saalon baad tumhara wo post dekh ke laga jaise time freeze ho gaya ho. Tum school ke time pe toh sundar thi hi, par ab... you look ridiculously stunning, adorable and so damn cute! 🌸❤️<br><br>
 
-let currentPhoto = 0;
+        Wo charm, wo elegance, aur wo smile... matlab seriously, koi itne saalon baad aur zyada khoobsurat kaise lag sakta hai? Lagta hai waqt tumhare aage tham sa gaya hai. ✨💫<br><br>
 
-setInterval(() => {
+        Pehle toh introvert hone ka bahana tha, par ab jab itne saalon baad wapas tumhari jhalak dekhi, toh laga ki ab chup rehna gunah hoga! 😉<br><br>
 
-    currentPhoto = (currentPhoto + 1) % photos.length;
+        Swipe karo aage... and see the magic yourself! 👇❤️
+    `,
+    photos: [
+        "komal1.jpeg",
+        "komal2.jpeg",
+        "komal3.jpeg",
+        "komal4.jpeg",
+        "komal5.jpeg"
+    ]
+};
 
-    const img = document.getElementById("komalPhoto");
+/* ================================================= */
+/* NEXT MAIN SLIDE */
+/* ================================================= */
 
-    img.style.opacity = "0";
+function nextSlide(){
+    if(current < totalSlides - 1){
+        current++;
+        container.style.transform = `translate3d(-${current * 100}vw, 0, 0)`;
+    }
+}
 
-    setTimeout(() => {
+/* ================================================= */
+/* CHECK NAME */
+/* ================================================= */
 
-        img.src = photos[currentPhoto];
+function checkName(){
+    const name = document.getElementById("username").value.trim().toLowerCase();
 
-        img.style.opacity = "1";
-
-    }, 500);
-
-}, 3000);
-
-
-// Floating Hearts
-
-setInterval(function(){
-
-    var r_size = Math.floor(Math.random() * 60) + 10;
-    var r_left = Math.floor(Math.random() * 100) + 1;
-    var r_bg = Math.floor(Math.random() * 25) + 100;
-    var r_time = Math.floor(Math.random() * 5) + 5;
-
-    $('.bg_heart').append(
-
-        "<div class='heart' style='width:" + r_size +
-        "px;height:" + r_size +
-        "px;left:" + r_left +
-        "%;background:rgba(255," +
-        (r_bg - 25) + "," +
-        r_bg +
-        ",1);animation:love " +
-        r_time +
-        "s linear'></div>"
-
-    );
-
-    $('.heart').each(function(){
-
-        var top = $(this).css("top").replace(/[^-\d\.]/g,'');
-
-        if(top <= -100){
-            $(this).remove();
-        }
-
-    });
-
-},500);
-
-
-// Message
-
-var i = 0;
-
-var txt1 =
-"Dear Komal ❤️ << " +
-"Aaj mujhe tumse kuch special kehna hai, isliye please is message ko poora padhna... << " +
-"Sach kahu to mujhe hamesha lagta tha ki meri life me kuch missing hai. << " +
-"Phir dheere dheere tum meri life me aayi aur pata hi nahi chala kab tum meri soch ka ek important hissa ban gayi. << " +
-"Tumhari smile, tumhara nature aur tumhari simplicity mujhe bahut pasand hai. 🥰 << " +
-"Jab bhi tumhari photo dekhta hu ya tumse baat hoti hai, pura din achha lagne lagta hai. << " +
-"Shayad tumhe andaza bhi nahi hoga ki tum mere liye kitni special ho. ❤️ << " +
-"Main future ke baare me nahi jaanta, lekin itna zaroor jaanta hu ki tum meri life ki sabse khoobsurat feelings me se ek ho. << " +
-"Thank you for being so wonderful Komal. 💖 << " +
-"Stay happy, keep smiling and always remain the amazing person you are. ❤️";
-
-var speed = 55;
-
-typeWriter();
-
-function typeWriter(){
-
-    if(i < txt1.length){
-
-        if(txt1.charAt(i) == "<"){
-
-            document.getElementById("text1").innerHTML += "<br><br>";
-
-        }
-
-        else{
-
-            document.getElementById("text1").innerHTML += txt1.charAt(i);
-
-        }
-
-        i++;
-
-        setTimeout(typeWriter, speed);
+    if(name !== "komal"){
+        alert("This secret surprise is only for Komal 😉✨");
+        return;
     }
 
+    document.getElementById("greeting").innerHTML = `Hey Gorgeous, Komal ✨❤️`;
+    document.getElementById("message").innerHTML = komalData.message;
+    document.getElementById("memoryName").innerHTML = `The Stunning Komal ✨`;
+
+    for(let i = 1; i <= TOTAL_PHOTOS; i++){
+        document.getElementById(`carouselPhoto${i}`).src = komalData.photos[i - 1];
+    }
+
+    document.getElementById("finalMessage").innerHTML = `So... Miss Beautiful 😉❤️`;
+
+    carouselIndex = 0;
+    updateCarousel();
+    startCarousel();
+
+    music.play().then(() => {
+        console.log("Music Started");
+    }).catch((error) => {
+        console.log("Music blocked:", error);
+    });
+
+    nextSlide();
 }
+
+/* ================================================= */
+/* 5-CARD 3D CAROUSEL UPDATE */
+/* ================================================= */
+
+function updateCarousel(){
+    cards.forEach((card, index) => {
+        const position = (index - carouselIndex + TOTAL_PHOTOS) % TOTAL_PHOTOS;
+
+        // Front Center
+        if(position === 0){
+            card.style.transform = `translate3d(0, 0, 140px) scale(1) rotateY(0deg)`;
+            card.style.opacity = "1";
+            card.style.zIndex = "10";
+            card.style.filter = "brightness(1)";
+        }
+        // Right Near
+        else if(position === 1){
+            card.style.transform = `translate3d(180px, 0, -40px) scale(0.82) rotateY(-25deg)`;
+            card.style.opacity = "0.75";
+            card.style.zIndex = "6";
+            card.style.filter = "brightness(0.7)";
+        }
+        // Right Far / Back
+        else if(position === 2){
+            card.style.transform = `translate3d(90px, 0, -160px) scale(0.65) rotateY(-15deg)`;
+            card.style.opacity = "0.35";
+            card.style.zIndex = "2";
+            card.style.filter = "brightness(0.4)";
+        }
+        // Left Far / Back
+        else if(position === 3){
+            card.style.transform = `translate3d(-90px, 0, -160px) scale(0.65) rotateY(15deg)`;
+            card.style.opacity = "0.35";
+            card.style.zIndex = "2";
+            card.style.filter = "brightness(0.4)";
+        }
+        // Left Near
+        else if(position === 4){
+            card.style.transform = `translate3d(-180px, 0, -40px) scale(0.82) rotateY(25deg)`;
+            card.style.opacity = "0.75";
+            card.style.zIndex = "6";
+            card.style.filter = "brightness(0.7)";
+        }
+    });
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === carouselIndex);
+    });
+}
+
+/* ================================================= */
+/* CAROUSEL NAVIGATION */
+/* ================================================= */
+
+function nextPhoto(){
+    carouselIndex = (carouselIndex + 1) % TOTAL_PHOTOS;
+    updateCarousel();
+}
+
+function previousPhoto(){
+    carouselIndex = (carouselIndex - 1 + TOTAL_PHOTOS) % TOTAL_PHOTOS;
+    updateCarousel();
+}
+
+function startCarousel(){
+    stopCarousel();
+    carouselTimer = setInterval(nextPhoto, 2800);
+}
+
+function stopCarousel(){
+    if(carouselTimer){
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+    }
+}
+
+/* ================================================= */
+/* TOUCH & SWIPE SUPPORT */
+/* ================================================= */
+
+const carousel = document.getElementById("carousel");
+
+carousel.addEventListener("touchstart", function(event){
+    touchStartX = event.changedTouches[0].screenX;
+}, {passive:true});
+
+carousel.addEventListener("touchend", function(event){
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe();
+}, {passive:true});
+
+function handleSwipe(){
+    const difference = touchEndX - touchStartX;
+    if(difference < -40){
+        nextPhoto();
+        startCarousel();
+    } else if(difference > 40){
+        previousPhoto();
+        startCarousel();
+    }
+}
+
+/* ================================================= */
+/* ENTER KEY SUPPORT */
+/* ================================================= */
+
+document.getElementById("username").addEventListener("keydown", function(event){
+    if(event.key === "Enter"){
+        checkName();
+    }
+});
+
+updateCarousel();
 
 </script>
 
 </body>
 </html>
-```
